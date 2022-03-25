@@ -52,14 +52,15 @@ public:
 class ProductHandler {
 private:
 	Product* pobj[100];
-	static int idx=0;
+	//int idx;
 public:
 	ProductHandler() {}
-	void AddProduct(Product* id)
+	void AddProduct(Product* id, int idx)
 	{
-		pobj[idx++]=id;
+		cout << idx;
+		pobj[idx]=id;
 	}
-	void ShowData() {
+	void ShowData(int idx) {
 		for (int i = 0; i < idx; i++)
 		{
 			pobj[i]->ShowData();
@@ -97,12 +98,12 @@ void Plus() {
 		cout << "АЁАн : ";
 		cin >> price;
 		
-		Handler.AddProduct(new Book(title, writer, decription, price, decription));
+		Handler.AddProduct(new Book(title, writer, decription, price, decription), idx);
 		cout << endl << endl;
-		Handler.ShowData();
+		Handler.ShowData(idx);
 	}
 
-	//idx++;
+	idx++;
 }
 /******************************************************************/
 
